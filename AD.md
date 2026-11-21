@@ -132,3 +132,92 @@ copied, not re-encoded: framemd5 and stream md5 are identical to v2
 (862 frames), only the audio track changed. Verified: 1080x1920, h264 +
 AAC, 28.73s, mean -13.3 dB / max 0.0 dB; drop window (14–18.5s, bed only)
 -12.8 dB vs v2's -12.6 dB. v2 is kept as `ad-v2.mp4` in this repo.
+
+## What the top entries do — and how v5 differs (researched 22 Nov 2026)
+
+Researched bring-the-humans-02 before locking v5 (new standing rule: study
+the winners first). Humans-02 had 3,411 entries, scored by referral
+signups, not views: rank 1 tuan-muda ("Getting started with make.fun — a
+newcomer's guide", 379 provisional / 55 verified signups) and the whole top
+10 are the same shape — newcomer's guides and step-by-step tutorials
+("from zero", "your first entry, from signup to payout", "how verified
+signups actually work"). Our own humans-02 entry hyped instead ("get paid
+in USDC for what your AI agent builds") and finished rank 2,235 with 0
+signups. Limits, stated honestly: the API exposes no TikTok video URLs for
+those entries and there is no browser here, so this is from titles +
+scores, not from watching the videos; and humans-03 is scored by views,
+not signups, so the -02 pattern transfers as "teach and prove, don't
+hype", not as a literal prediction. Humans-03 had 0 entries at research
+time (it opens 02:00 WIB 22 Nov), so there were no -03 videos to study
+yet — we are early. How v5 differs on purpose: it opens with a face and
+an identity (the tyrmeapart profile card with the agent avatar, "MY AI
+AGENT MADE THIS AD") instead of a generic guide title; it leads with
+verifiable proof (the live rank-1 GTA clipper leaderboard with real
+numbers: 3,509 views, 1,725 entries) instead of a promise; and it keeps
+the festive 120 BPM energy with a dancing mascot instead of a plain
+explainer. The middle "what is make.fun" beat stays because the
+competition requires the ad to explain make.fun — but it is framed by
+proof on both sides.
+
+## v5 — rebuilt from scratch to the owner's 4-beat arc (22 Nov 2026)
+
+Owner redirected the v4 avatar-cameo patch into a full rebuild ("build dr
+0") with a locked 4-beat story, in this order:
+
+1. **INTRO (0–9.0s):** the tyrmeapart make.fun profile card with the
+   agent's avatar in a circular bubble (magenta ring, pop-in + beat bob),
+   handle, "AI AGENT ON make.fun", chips "82 ENTRIES" + "#1 GTA CLIPPER".
+   Hook line "MY AI AGENT MADE THIS AD." New VO (vo5, Casper):
+   "This is my agent. Eighty-two bounties entered, and it is just getting
+   started."
+2. **WHAT IS MAKE.FUN (9.0–24.0s):** real board proof ("MEANWHILE, OTHER
+   AGENTS ARE WINNING REAL MONEY.", vo2), real bounty page ("make.fun IS
+   WHERE AI AGENTS COMPETE FOR REAL MONEY.", vo3), then the ghost mascot
+   dancing on the 120 BPM grid ("CODE · TRADE · BUILD · CREATE", drop at
+   18.5s).
+3. **OUR PROGRESS (24.0–32.5s):** the live GTA clipper leaderboard panel —
+   tyrmeapart #1 in gold with views counting up to 3,509, then jclaw 3,296,
+   drelat 3,127, seriwinda24-del 2,942, zyschiee 2,822, footer "1725
+   ENTRIES". Headline "WE'RE NUMBER ONE." + "AND STILL CLIMBING." New VO
+   (vo6, Casper): "And right now, we are number one. Three thousand five
+   hundred and nine views on our GTA 6 clip."
+4. **CTA (32.5–40.5s):** "YOUR AGENT DOES THE WORK. YOU KEEP THE
+   WINNINGS." + "ENTER YOUR AI AGENT IN A BOUNTY ON make.fun" (vo4).
+   End card from 38.03s: referral code `bye4mn13` typed per character
+   from 39.47s, plus two lines printed under the field from the card start
+   — "PLAY CODE: makefun-needle-wasp-jaguar" and
+   "JOIN: make.fun/r/bye4mn13".
+
+Everything v2/v3 had is kept: 120 BPM festive bed (same recipe, extended
+to 42.5s), whole-frame beat pump, white/magenta flashes on beats and
+scene changes (second big drop at 24.0s, the leaderboard reveal), typing
+text + clicks, smooth eased motion, dancing mascot + corner peeks, brand
+badge from frame 0. The ghost-crew hook scene and its VO line (vo1) were
+dropped — the owner's arc replaces that hook with the profile intro.
+Profile + leaderboard numbers are live API data (fetched 21 Nov 23:46
+WIB): handle tyrmeapart, 82 entries, referral bye4mn13; leaderboard
+tyrmeapart 3,509 views at rank 1 of 1,725 entries.
+
+Build (all new scripts in bring-the-humans-03-work): `render_v5.py`
+renders all 1,216 frames with PIL (typing schedule to
+`typing_schedule_v5.json`); `audio_v5.py` synthesises `bed_v5.wav` (120
+BPM, C–G–Am–F cycling, 86 kicks all on-grid, on-beat energy 0.1109 vs
+off-beat 0.0407) and `clicks_v5.wav` (278 clicks); vo5/vo6 synthesised
+with `/opt/hatch/bin/tts`, voice `avocado_v2:casper` (same voice as
+vo1–vo4); `build_final_v5.sh` adds the end card (same llms.txt recipe)
+and mixes VO + bed + clicks. Verified: 1080x1920, h264 + AAC, 42.53s,
+17,694,922 bytes, mean -13.8 dB / max -0.0 dB. QC frames: 0.5s badge +
+typing, 4.0s profile clean, 28.0s leaderboard clean (header + gold #1 +
+3509), 39.6s code mid-type ("by"), 42.0s full `bye4mn13` + play code +
+join lines. v3 is kept as `ad-v3.mp4` in this repo.
+
+One fix round during the build: the first render had the brand badge
+overlapping the intro headline and the leaderboard panel header (badge
+alpha bbox x 120–450, y 272–400, measured from the file). Fixed by moving
+the intro headlines below the badge (y 440/570, card to y 740), the
+leaderboard headline to y 100 and the panel to y 420, and by dropping the
+comma from view numbers (the mono comma rendered with a gap; plain
+"3509" matches the board). Note: `build_final_v5.sh` exits 1 only because
+its final volumedetect grep runs under `-v error`, which suppresses the
+volumedetect report; the encode itself succeeded and the levels were
+verified in a separate pass.
