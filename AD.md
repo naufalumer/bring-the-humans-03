@@ -271,3 +271,102 @@ kept as `ad-v5.mp4` in this repo.
 grep runs under `-v error`, which suppresses the volumedetect report (same
 v5 quirk); the encode succeeded and levels were verified in a separate pass
 (mean -13.8 / max -0.0).
+
+---
+
+## v7-alt (comparison version, built from scratch — NOT the posting version)
+
+**Purpose:** an alternate take of the same 4-beat arc (same order: profile
+intro, what-is-make.fun, rank-1 leaderboard proof, CTA), built from zero so
+the owner can compare it against approved v6 and pick. v6 stays the posting
+version; `ad.mp4` was never touched. Rendered with `render_v7alt.py` (own
+script, same LINES text/starts as v5 so the typing schedule is identical),
+assembled with `build_final_v7alt.sh`. Output `ad-alt.mp4` in this repo.
+
+**Style — "daylight pop" (the opposite of v6's dark ink):** light ivory
+background (#F4F8F5) with a faint magenta/cyan dot grid, bold magenta
+(#C41C83) and cyan (#00A8C6) accents, gold (#F5C542) for the #1 row and the
+prize badge. Sticker treatment everywhere: white cards with thick ink
+borders, drop shadows, slight rotations, layered sticker-stack typing pills.
+The mascot is a sticker (thick white + ink outline) instead of v6's flat
+mark; the badge uses the light-ground lockup (`lockup-2400.png`, ink
+wordmark + magenta disc) because the white/magenta lockup is invisible on a
+light background. 3D depth is kept in the light style: extruded text
+(4px headlines, 3px leaderboard header/rank/handle/views, 2px chips),
+blur-16 drop shadows, bevels, vertical depth gradient (top 1.18x, bottom
+0.85x).
+
+**Fonts (all free, OFL, from Google Fonts — deliberately different from v6):**
+- Headlines / display / big numbers: **Bebas Neue** (tall condensed,
+  `BebasNeue-Regular.ttf`, 61,400 B) — visibly different from v6's Anton.
+- Body / small labels: **Poppins Bold** (`Poppins-Bold.ttf`, 155,996 B) —
+  different from v6's Montserrat ExtraBold. The end-card play code and join
+  link use Poppins Bold (same as v6's card).
+- Referral code: still **JetBrains Mono Bold** — the typing grid needs a
+  fixed width (37.203 px/char); same reason as v6.
+- Glyph coverage verified with fontTools before rendering (Bebas + Poppins):
+  em dash, en dash, middle dot, apostrophe, digits, lowercase — no tofu.
+
+**Motion — a different, wilder recipe than v6 (owner: super festive, must
+NOT reuse v6's motion):** v6 = frame pump 2.8%/beat, white flashes, typing,
+eased dissolves, mascot dance. v7-alt = elastic bounces with overshoot on
+every beat (panel scale 1 + 3% elastic, rows pop in with ease-out-back),
+sticker pop-ins with rotation (cards rotate in -4deg to +2deg, pills tilt
+-2deg/+2deg), confetti bursts on the drops (9s, 13s, 18.5s, 24s, 32.5s),
+exaggerated squash-and-stretch (1.25x/0.75x on the mascot every beat, v6
+was 1.12/0.86), zoom punches on the hard cuts (9.0s, 13.5s, 18.5s, 24.0s,
+32.5s), colorful flashes (magenta on odd beats, cyan on even beats —
+never plain white), spinning/tilting elements (mascot 360deg spin-in at
+18.5s, trophy 360deg spin-in at 24.1s, $100 badge pop-in with rotation at
+24.45s). Text stays legible throughout; nothing covers the badge, the
+referral code, or the play code.
+
+**Leaderboard scene — podium celebration:** a gold trophy (PIL-drawn,
+bold silhouette with 3D shine + star sparkle, `trophy.png` 300x420, no
+emoji, no stock image) spins in at 24.1s next to the #1 row, and a gold
+"1ST PRIZE $100" badge pops in at 24.45s (1st place = $100 USDC, verified
+from the competition payout curve). The #1 view count counts up 0 to 3509
+over 2.2s (24.3s to 26.5s, ease-out). **Paper rain: 96 pieces** — 40 burst
+at the 24.0s reveal drop (pre-scattered through the top half) + 56 trickle
+at 7/s until 32.5s; every piece has its own speed, spin, drift, size
+(8-16px) and colour (gold/white/magenta/cyan/ink), fluttering and rotating
+as it falls. Exclusion rects keep the pieces off the headline, the
+trophy/$100 badge, the panel header, the rank+handle and views columns,
+the footer, and "AND STILL CLIMBING." — rank numbers, view counts, trophy
+and badge stay fully readable. (QC fix: the trophy was first centred at
+(445, 285), which put its cup behind the headline pill — moved to centre
+(505, 305) at 90x126, headline lifted to y80, badge to centre (700, 305);
+re-rendered and re-QC'd.)
+
+**Scene 3 — drawn bounty card, not a screenshot:** the light screenshot
+we had (`competition-light.png`) turned out to be a DIFFERENT bounty (a
+pump.fun trading-bot bounty, $1,325), not bring-the-humans-03. A
+headless-Chromium re-shoot of the real page failed in this VM
+(ERR_TUNNEL_CONNECTION_FAILED; no browser available to a subagent), so
+scene 3 is a PIL-drawn sticker-style bounty card (`make_scene3_drawn.py`)
+carrying the REAL humans-03 facts (verified from the competition API
+payout curve): $500 prize pool, 20 places paid, 1st $100 / 2nd $70 /
+3rd $50 / 4th-10th $20 / 11th-20th $14, closes Nov 25, 2:00 AM WIB, URL
+make.fun/bounty/bring-the-humans-03. v6 keeps the real page screenshot;
+the alt's card is a deliberate style choice and shows the right bounty.
+
+**Fresh numbers (fetched 22 Nov ~00:21 WIB, live API):** leaderboard
+#1 tyrmeapart 3509, #2 jclaw 3327, #3 drelat 3127, #4 seriwinda24-del
+2972, #5 zyschiee 2822, 1729 entries total; profile 82 entries, referral
+bye4mn13. Audio reused as-is from v5/v6 (bed_v5.wav + VO files, no
+re-recording); duration stays 42.53s.
+
+**Verified:** 1080x1920, h264 + AAC, 42.533333s, 19,575,708 bytes, md5
+ae166a92628243f5f7e4934f265ee2ef, mean -13.8 dB / max -0.0 dB (identical
+to v5/v6, no clipping). Render: 1,216 frames, 270 typing events, typing
+schedule identical to v5 (v5 clicks stay in sync). QC frames (v2 build):
+0.5s badge + typing, 4.0s profile clean (avatar circle, Bebas handle with
+magenta extrusion, chips), 9.5s board card + confetti burst, 11.0s
+"MEANWHILE, OTHER AGENTS ARE WINNING REAL MONEY." complete, 14.0s drawn
+bounty card + "MAKE.FUN IS AI AGENTS FOR REAL" typing, 19.0s mascot
+mid-spin, 21.0s "CODE · TRADE / BUILD · CREATE" + settled mascot, 25.0s
+trophy fully visible + $100 badge + count-up mid-flight (2396, correct
+per the 2.2s ease), 28.0s leaderboard settled (3509, all rows legible,
+papers thinning), 30.0s papers at panel edges, 34.0s close lines typing,
+37.0s "ENTER Y / IN A" typing, 39.6s code mid-type, 42.0s full `bye4mn13`
++ play code + join lines readable. v6 stays as `ad.mp4` in this repo.
