@@ -412,3 +412,108 @@ $100 badge, 3509, all rows legible), 42.0s end card full `bye4mn13` +
 play code + join lines readable. v7 backed up as `ad-alt-v7.mp4` (md5
 ae166a92628243f5f7e4934f265ee2ef, identical to the v7 original). v6 stays
 as `ad.mp4` in this repo, untouched.
+
+## v9 — Gemini-reference rebuild + pure white + alive (22 Nov ~01:07 WIB, owner: generated a 10s Gemini video, "bagus nih dia, tp cm 10 detik doang si bisa lu jadiin referensi nih sumpah" + "background harus PUTIH BERSIH" + "videonya harus terasa HIDUP")
+
+v8-alt + Gemini-inspired touches, NOT a rebuild from scratch and NOT a
+copy of the Gemini video. Same 4-beat arc, same timing, same text, same
+audio (v5/v6 bed + VO, no re-recording), same 42.53s duration.
+
+**What was taken from the Gemini reference (10s, 720x1280):**
+- The avatar waving with a drawn hand; dense confetti from frame 0; a
+  huge bold pink 3D headline; a big present mascot; the podium
+  leaderboard with trophy + "1ST PRIZE $100" badge; the end-card layout.
+- All of it rebuilt agent-made: PIL-drawn glove hands, PIL confetti,
+  PIL 3D text, transforms of the OFFICIAL press-pack ghost art.
+
+**What was deliberately NOT taken:**
+- The Gemini leaderboard is FAKE — AI-hallucinated names and numbers
+  (jooketta110, jomu3723, etc.). v9 uses REAL live leaderboard data only
+  (see below). The Gemini 3D ghost is a DIFFERENT ghost, not the official
+  make.fun mascot — v9 keeps the official press-pack ghost
+  (`sticker_mascot.png`), transforms only, never redrawn. No frames or
+  images from the Gemini video appear anywhere in the output.
+
+**Pure white (owner correction):** every PIL-drawn surface is now pure
+white #FFFFFF — page background, profile card, leaderboard panel, row
+backgrounds (neutral light gray #EEEEF0, not cream). The cream the owner
+saw in the v8 screenshot was the ivory page bg (255,246,232) + the
+white-to-warm-cream card/panel gradients. The scene cards were already
+white. The end card is unchanged: it is the official magenta press-pack
+referral card (full-bleed), not a page surface.
+
+**Flash / sparkle kept:** confetti, flash and twinkle all stay — the base
+flash amplitude was lowered slightly (48 -> 30) so the white background
+still reads white between pulses, and 36 PIL-drawn 4-point star twinkles
+were added in the empty bands (side margins, top + bottom strips),
+pulsing on the beat. The scene-cut flash punch is unchanged.
+
+**Gemini touches in v9:**
+- Avatar glove hand: the avatar gets its own PIL-drawn waving glove
+  (white, ink outline, magenta cuff — same style as the mascot's glove),
+  flipped so the thumb points toward the avatar, left of the circle,
+  same 0.3-3.0s greeting envelope.
+- Denser confetti: ambient rain of 70 small pieces the whole video (20
+  pre-scattered so frame 0 is already dense) + a confetti burst at t=0 +
+  80 pieces per scene-cut burst (was 50). Never over the badge, typed
+  pills, avatar face, or the leaderboard panel rows.
+- Intro headline bigger + bolder pink 3D: Bebas 124 (was 112), magenta
+  fill, deep plum extrude, depth 6. The two pills now sit cleanly stacked
+  (tighter pad, no tilt) instead of overlapping.
+- Mascot bigger + 3D: dance size 380 (was 320), soft drop shadow (alpha
+  mask, blurred, offset down-right) on every mascot paste.
+
+**ALIVE (owner: "videonya harus terasa HIDUP"):**
+- Greeting 0-3s with bigger amplitude: avatar nod +/-14deg (was 9) +
+  18px bob (was 12) + 8% scale-up toward the camera; mascot wave
+  +/-18deg (was 12) + higher hops, 1.7x size (was 1.5x); HI bubble pops
+  with a bounce + beat pulse.
+- Nobody ever stands still: avatar has a slow breathing scale (2%,
+  2s period) on top of the beat wobble; mascot peeks have a slow hover
+  (8px, 1.6s period) on top of the beat bob.
+- Mascot reacts: scene-2 peeks are BIG (260) and sit right under the
+  headline, leaning toward it, floating; the mascot pops in with the
+  leaderboard panel, floats at the bottom-left, and CELEBRATES when the
+  count-up lands on our views (26.58s) — a 360deg spin + a hop, then a
+  wave; it waves again at 36.8-38.0s, just before the end card washes in
+  (the card itself is the opaque magenta press-pack card, so nothing
+  from the clip shows during 38.0-40.5s).
+- Avatar in the intro is slightly bigger during the greeting (8% scale)
+  and centred, facing the camera.
+
+**Fresh numbers (fetched live 22 Nov ~01:18 WIB, just before rendering):**
+leaderboard #1 jclaw 3604, #2 tyrmeapart 3509, #3 seriwinda24-del 3420,
+#4 gm-xbt 3325, #5 zyschiee 3219, 1753 entries total; profile 82 entries,
+referral bye4mn13. Our row is highlighted gold wherever it sits (not
+rank 1); the count-up targets OUR views (3,509). The profile chip reads
+"3509 VIEWS" (honest) instead of "#1 GTA CLIPPER".
+
+**KNOWN ISSUE — read before picking this version:** on the board at
+render time we are #2 (jclaw 3,604, our board read 3,509 still lags our
+public YouTube count, which was 3,735 at 00:57 WIB and climbing). The
+panel shows the real top 5 — but the (unchanged) VO and the typed line
+still say "WE'RE NUMBER ONE." / "we are number one". That is a visible
+contradiction inside this version: the panel says #2, the voice says #1.
+v8 (rendered 00:21 WIB, when the board said #1) has no such contradiction.
+If the board flips back to #1 before posting, the contradiction disappears
+in substance — but as rendered, v9's panel is #2. Pick with eyes open.
+
+**Honest limits:** no image has a real waving hand — both waving hands
+are PIL-drawn gloves; the greeting is nod/tilt/bob + HI bubble + glove.
+The mascot is the official art, transforms only. The end-card wave is in
+the 1.2s before the opaque card, not during the card itself.
+
+**Verified:** 1080x1920, h264 + AAC, 42.533333s, 21,138,235 bytes, md5
+d5553bfd72f7e38aba6c2646370b44e3, mean -13.8 dB / max -0.0 dB (identical
+to v5/v6/v7/v8, no clipping). Render: 1,216 frames, 270 typing events,
+typing schedule identical to v5 (diff clean, v5 clicks stay in sync).
+QC frames: 0.5s badge + typing + HI bubble + mascot peek with glove
+hand + dense confetti from frame 0, 1.5s avatar nod mid-tilt + HI bubble
++ avatar glove hand + mascot waving big, 2.5s opposite wave phase (the
+greeting reads across frames), 4.0s greeting settled clean, 11.0s board
+card + big mascot under the headline, 19.5s mascot mid-wave + HI bubble
++ confetti, 26.8s leaderboard settled (real top 5, our row gold at #2,
+count-up 3509, mascot mid-celebration-spin), 28.0s trophy + $100 badge +
+1753 entries, 37.0s close wave before the end card, 42.0s end card full
+`bye4mn13` + play code + join lines readable. v6 stays as `ad.mp4`, v8
+stays as `ad-alt.mp4`, both untouched. v9 is `ad-v9.mp4` in this repo.
