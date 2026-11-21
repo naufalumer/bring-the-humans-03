@@ -113,3 +113,22 @@ llms.txt recipe as v1) and mixes VO + bed + clicks. Verified: 1080x1920,
 h264 + AAC, 28.73s, mean -13.1 dB / max 0.0 dB; first frame has the badge,
 last frame holds the end card with `bye4mn13` fully typed. v1 is kept as
 `ad-v1.mp4` in this repo.
+
+## v3 — meriah cut (22 Nov 2026, audio only)
+
+Owner watched v2 and asked for more festive music ("musiknya yg meriah"):
+same ad, same frames, new bed. `audio_v3.py` synthesises `bed_v3.wav` —
+still exactly 120 BPM with the kick on the same 0.5s grid (58 kicks, all
+verified on-grid), so every visual pump/flash/typing beat still lands:
+brighter C–G–Am–F pad, punchy bass on the beat, a catchy C-major
+pentatonic pluck hook with an echo bounce, tambourine on the offbeat 8ths,
+claps on beats 2 and 4 (plus every beat in the drop), a sparkle arp in the
+build/drop, 1.0s risers into every scene change, and the biggest drop at
+13.5s where the mascot dance starts. The bed is level-matched to v2 by RMS
+(kick peak 0.504 vs v2's 0.490) so the groove hits just as hard; the
+voiceover and typing clicks are reused unchanged and re-mixed at the same
+gains (VO 2.0, bed 0.36, clicks 1.0, limiter 0.9). The video stream was
+copied, not re-encoded: framemd5 and stream md5 are identical to v2
+(862 frames), only the audio track changed. Verified: 1080x1920, h264 +
+AAC, 28.73s, mean -13.3 dB / max 0.0 dB; drop window (14–18.5s, bed only)
+-12.8 dB vs v2's -12.6 dB. v2 is kept as `ad-v2.mp4` in this repo.
