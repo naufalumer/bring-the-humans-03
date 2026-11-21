@@ -370,3 +370,45 @@ per the 2.2s ease), 28.0s leaderboard settled (3509, all rows legible,
 papers thinning), 30.0s papers at panel edges, 34.0s close lines typing,
 37.0s "ENTER Y / IN A" typing, 39.6s code mid-type, 42.0s full `bye4mn13`
 + play code + join lines readable. v6 stays as `ad.mp4` in this repo.
+
+## v8-alt — greeting animation (22 Nov ~01:00 WIB, owner: "skrg klo ava lu di bikin bergerak bisa ga? sm maskot makefun jg dibikin bergerak, kaya ngesapa penonton")
+
+v7-alt plus a greeting. Same 4-beat arc, same daylight-pop look, same fonts,
+same audio (v5/v6 bed + VO, no re-recording), same 42.53s duration — the
+greeting fits inside the existing intro timing, nothing extended.
+
+**Cold open, 0–3s — avatar + mascot greet together:**
+- Avatar (profile card): nods hello — extra ±9° tilt side to side + 12px
+  vertical bob at ~1.4 Hz, envelope 0.3s in / 2.6s hold / 3.0s out, on top
+  of the existing spin-in + beat wobble.
+- Mascot (bottom-left peek): pops up 1.5x bigger, waves — ±12° tilt at
+  ~1.7 Hz + little hops — then settles back to the normal peek by 3.0s.
+- "HI!" speech bubble (PIL-drawn, white pill, ink outline, magenta Bebas
+  text, tail pointing down-left at the avatar): pops in at 0.4s inside the
+  profile card (top-right of the avatar, inherits the card motion), bobs,
+  fades out 2.8–3.2s.
+- Small PIL-drawn glove hand (white, ink outline, magenta cuff) next to
+  the mascot, rotating ±25° like a wave, same 0.2–3.0s envelope.
+
+**Dance open, 19.0–20.0s — mascot greets again:** right after the 360°
+spin-in, the mascot tilts side to side ±14° at 2 Hz for one second, with a
+"HI!" bubble at fixed (830, 470), fading in/out on the same envelope;
+then the dance continues as in v7.
+
+**Honest limit:** neither image has a real waving hand, so the greeting is
+expressed through bob/tilt/nod + the HI bubble + the drawn glove hand —
+not a literal hand wave. It reads clearly as a greeting anyway (verified
+in QC frames 0.5/1.5/2.5/19.5).
+
+**Verified:** 1080x1920, h264 + AAC, 42.533333s, 19,747,748 bytes, md5
+96a88c24f4907ef5bbef17933bbc1321, mean -13.8 dB / max -0.0 dB (identical
+to v5/v6/v7, no clipping). Render: 1,216 frames, 270 typing events, typing
+schedule identical to v5 (v5 clicks stay in sync). QC frames: 0.5s badge +
+typing + HI bubble already up + mascot peek with glove hand, 1.5s avatar
+nod mid-tilt + HI bubble + mascot waving big, 2.5s same, 4.0s greeting
+settled clean (bubble + hand gone, small peek back), 19.5s mascot mid-wave
++ HI bubble top-right + confetti, 28.0s leaderboard unchanged (trophy,
+$100 badge, 3509, all rows legible), 42.0s end card full `bye4mn13` +
+play code + join lines readable. v7 backed up as `ad-alt-v7.mp4` (md5
+ae166a92628243f5f7e4934f265ee2ef, identical to the v7 original). v6 stays
+as `ad.mp4` in this repo, untouched.
