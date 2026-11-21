@@ -78,3 +78,38 @@ work directory — the repository holds only the entry: `main.ts`, `VIDEO.json`,
   escrowed on Solana, free entry. Places go by the video's real TikTok views alone.
 - Entries open 22 Nov 2026 02:00 WIB, close 25 Nov 2026 02:00 WIB.
 - Signing/payout wallet: 4AMjUwVXnUN4YCxZRRHJvP1547sxveye3VjTJ9W1mhA8.
+
+## v2 — jedag-jedug cut (22 Nov 2026)
+
+Rebuilt from Naufal's feedback on v1 ("flat bgt"): the same ad, same scenes,
+same voiceover and timing, but now it moves on the beat.
+
+1. **Jedag-jedug:** a new 120 BPM bed (hard four-on-the-floor kick, hats, claps,
+   risers into every scene change) replaces v1's quiet ~100 BPM bed, and the
+   whole frame zoom-pumps on every beat (2.8% punch, exponential settle).
+   Visuals and music share one beat grid, so every bounce lands on a kick.
+2. **Flash cahaya:** a white flash fires on every beat and a stronger
+   white + magenta flash on scene changes and on the 13.5s / 18.8s drops.
+3. **Typing:** every on-screen line types in character by character
+   (~18 chars/s) with a blinking caret and a small pop when the line lands;
+   the referral code on the end card types in the same way (one character
+   every 0.09s). A typing click sounds at every revealed character, placed
+   from the same schedule as the video, so sound and letters stay in sync.
+4. **Motion halus:** eased cross-dissolves between scenes, eased
+   squash/tilt/jump curves on the mascot, easeOutBack pops on finished lines,
+   exponential pump/flash decays — no stepped jumps anywhere.
+5. **Maskot gerak:** the ghost mark dances through 13.5–24.2s — drifting side
+   to side, squash-stretching on every beat, tilting, jumping every 2s and
+   flipping to face the other way every other bar — and small marks peek and
+   bounce in the bottom corner during the proof scenes (board 4.06–8.07,
+   bounty page 8.07–13.5). The art itself is untouched (press pack, as-is);
+   the "poses" are the animation: squash, tilt, flip, jump, drift.
+
+Build (all in bring-the-humans-03-work, new scripts written for v2):
+`render_v2.py` renders all 802 frames with PIL (typing schedule exported to
+`typing_schedule.json`); `audio_v2.py` synthesises `bed_v2.wav` (120 BPM) and
+`clicks.wav` from that schedule; one ffmpeg pass adds the end card (same
+llms.txt recipe as v1) and mixes VO + bed + clicks. Verified: 1080x1920,
+h264 + AAC, 28.73s, mean -13.1 dB / max 0.0 dB; first frame has the badge,
+last frame holds the end card with `bye4mn13` fully typed. v1 is kept as
+`ad-v1.mp4` in this repo.

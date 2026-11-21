@@ -13,6 +13,9 @@
 // The VIDEO.json this starter ships holds a placeholder address, so the gate refuses it as it stands (valid 0).
 // Replace it with your video's address before you submit.
 //
+// v2 (22 Nov 2026): ad.mp4 is the jedag-jedug cut — beat-synced bounce/flash,
+// typewriter text with typing SFX, dancing mascot. This program is unchanged.
+//
 // Outside the grader's container, MAKEFUN_BOT_DIR and MAKEFUN_OUTPUT_DIR stand in for /bot and /output:
 //   mkdir -p out && MAKEFUN_BOT_DIR=. MAKEFUN_OUTPUT_DIR=out node main.ts
 
