@@ -221,3 +221,53 @@ comma from view numbers (the mono comma rendered with a gap; plain
 its final volumedetect grep runs under `-v error`, which suppresses the
 volumedetect report; the encode itself succeeded and the levels were
 verified in a separate pass.
+
+---
+
+## v6 — typography + 3D feel (22 Nov ~00:15 WIB, owner: "fontnya pake style font apaya yg bagus" + "kasih 3D feel")
+
+Same video as v5 (42.53s, same scenes, same timing, same audio) — only the
+fonts and the depth treatment changed. Rendered with `render_v6.py` (derived
+from v5), assembled with `build_final_v6.sh`.
+
+**Fonts (all free, OFL, from Google Fonts):**
+- Headlines / display text / big numbers: **Anton** (heavy condensed
+  display, `Anton-Regular.ttf`). Fallback Bebas Neue was not needed.
+- Body text / smaller labels: **Montserrat ExtraBold**
+  (`Montserrat-ExtraBold.ttf`). Fallback Inter ExtraBold / DejaVu Sans Bold
+  was not needed.
+- Referral-code field: still **JetBrains Mono Bold** — a code needs its
+  fixed-width typing grid (mono char width 37.203px); Anton is not monospaced
+  and would break the per-character positions.
+- Glyph coverage verified with fontTools before rendering: Anton covers em
+  dash, middle dot, apostrophe, digits, lowercase — no tofu. Leaderboard
+  numbers stay plain digits with no comma (v5 fix kept).
+
+**3D feel (tasteful depth, not clutter):**
+- Extruded text: stacked offset shadow layers behind headline and number
+  text (4px on LINES headlines, 3px on leaderboard header/rank/handle/views,
+  2px on chips; black behind white text, dark amber behind INK text on the
+  gold #1 row).
+- Soft drop shadows under the profile card and the leaderboard panel
+  (blurred dark rounded rect, offset +12/+16, blur 16).
+- Beveled panel edges: light top/left, dark bottom/right, on the card and
+  the panel.
+- Subtle vertical depth gradient on the card and panel fills (top 1.18x
+  lighter, bottom 0.85x darker).
+- End card: drop shadow (2,3) on every drawtext (code chars, play code,
+  join link). Animated scenes underneath unchanged.
+
+**Verified:** 1080x1920, h264 + AAC, 42.533333s, 18,058,739 bytes, mean
+-13.8 dB / max -0.0 dB (identical to v5, no clipping). Render: 1,216
+frames, 270 typing events, typing schedule identical to v5 (v5 clicks stay
+in sync). QC frames: 0.5s badge + typing, 4.0s profile clean (avatar circle,
+Anton handle with extrusion, card drop shadow visible), 14.0s bounty page +
+"make.fun IS WHERE" typing, 28.0s leaderboard clean (header + gold #1 +
+3509, em dash renders), 37.0s close lines typing, 39.6s code mid-type
+("bY"), 42.0s full `bye4mn13` + play code + join lines readable. v5 is
+kept as `ad-v5.mp4` in this repo.
+
+**Note:** `build_final_v6.sh` exits 1 only because its final volumedetect
+grep runs under `-v error`, which suppresses the volumedetect report (same
+v5 quirk); the encode succeeded and levels were verified in a separate pass
+(mean -13.8 / max -0.0).
